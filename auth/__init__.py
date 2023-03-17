@@ -1,6 +1,8 @@
 # blueprints/basic_endpoints/__init__.py
 from flask import Blueprint, request, make_response
 from datetime import datetime, timedelta
+from jwt.exceptions import ExpiredSignatureError
+
 
 import jwt
 
@@ -15,7 +17,20 @@ def login():
     if auth.get('username') == 'Pedro' and auth.get('password') == '123':
         token = jwt.encode({
             'public_id': '1',
-            'exp': datetime.utcnow() + timedelta(minutes=30)
-        }, 'ENTROPY')
+            'exp': datetime.utcnow() + timedelta(minutes=1)
+        }, 'ENTROPY', "HS256")
         return make_response({'username': auth.get('username'), 'token': token}, 201)
     return make_response({"message": "Usuario or password are invalid"}, 401)
+
+
+@bpAuth.route('/validate', methods=['POST'])
+def validateToken():
+    try:
+        auth = request.json
+        payload = jwt.decode(auth.get('token'),'ENTROPY',"HS256")
+    except ExpiredSignatureError:
+        return  make_response( {"message": "Token expirado"}, 200)
+    except Exception:
+        return  make_response( {"message": "error"}, 200)
+    return  make_response( {"message": "Token valido"}, 200)
+
