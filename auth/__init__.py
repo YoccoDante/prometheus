@@ -17,7 +17,7 @@ def login():
     if auth.get('username') == 'Pedro' and auth.get('password') == '123':
         token = jwt.encode({
             'public_id': '1',
-            'exp': datetime.utcnow() + timedelta(minutes=1)
+            'exp': datetime.utcnow() + timedelta(minutes=5)
         }, 'ENTROPY', "HS256")
         return make_response({'username': auth.get('username'), 'token': token}, 201)
     return make_response({"message": "Usuario or password are invalid"}, 401)
