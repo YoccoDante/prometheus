@@ -1,0 +1,621 @@
+{
+	"info": {
+		"_postman_id": "fd06cc2b-b0c2-47f9-b4e8-d2b03ebf99b5",
+		"name": "Prometheus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1410342"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Pedro\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prometheus_uri}}/auth/login",
+					"host": [
+						"{{prometheus_uri}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Pedro\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.11.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 06:23:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "168"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIxIiwiZXhwIjoxNjc5OTg0OTE3fQ.bOVcMmMs6IOCADjgYsYRVIJTwV0AnYEjn1igu5sx40I\",\n    \"username\": \"Pedro\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List customers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prometheus_uri}}/customers",
+					"host": [
+						"{{prometheus_uri}}"
+					],
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List customers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prometheus_uri}}/customers",
+							"host": [
+								"{{prometheus_uri}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 07:03:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=6b8d8002d281a736"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=f5d0bd6d423ea46a"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "118"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1679987012"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"customers\": [\n    {\n      \"id\": \"JDKYHBWT1D4F8MFH63DBMEN8Y4\",\n      \"created_at\": \"2016-03-23T20:21:54.859Z\",\n      \"updated_at\": \"2016-03-23T20:21:55Z\",\n      \"name\": \"Amelia\",\n      \"email_address\": \"Amelia.Earhart@example.com\",\n      \"address\": {\n        \"address_line_1\": \"500 Electric Ave\",\n        \"address_line_2\": \"Suite 600\",\n        \"locality\": \"New York\",\n        \"administrative_district_level_1\": \"NY\",\n        \"postal_code\": \"10003\",\n        \"country\": \"US\"\n      },\n      \"phone_number\": \"+1-212-555-4240\"\n    }\n  ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIxIiwiZXhwIjoxNjc5OTg0OTE3fQ.bOVcMmMs6IOCADjgYsYRVIJTwV0AnYEjn1igu5sx40I\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prometheus_uri}}/auth/validate",
+					"host": [
+						"{{prometheus_uri}}"
+					],
+					"path": [
+						"auth",
+						"validate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Validate",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOiIxIiwiZXhwIjoxNjc5OTg0OTE3fQ.bOVcMmMs6IOCADjgYsYRVIJTwV0AnYEjn1igu5sx40I\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/auth/validate",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"validate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.2 Python/3.11.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 06:39:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Token valido\"\n}"
+				}
+			]
+		},
+		{
+			"name": "forgot_password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email_address\": \"pedro@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prometheus_uri}}/auth/forgot_password",
+					"host": [
+						"{{prometheus_uri}}"
+					],
+					"path": [
+						"auth",
+						"forgot_password"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "forgot_password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email_address\": \"pedro@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prometheus_uri}}/auth/forgot_password",
+							"host": [
+								"{{prometheus_uri}}"
+							],
+							"path": [
+								"auth",
+								"forgot_password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 12:13:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=c95672769bc0a54c"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=cacae52d5a84e501"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1680005649"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"2sdfsdfdssdfsdfsdaKldskwkdksqkdkskdekKSFkqkerkwerkSDkkkksdfsdfsdfsdfdfskdfsdf\",\n    \"username\": \"Pedro\",\n    \"message\": \"Check your email for the reset password link\"\n}"
+				}
+			]
+		},
+		{
+			"name": "reset password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Pedro\",\n    \"new_password\": \"sdfsdfsdf\",\n    \"new_password2\": \"sdfsdfsdf\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prometheus_uri}}/auth/reset_password",
+					"host": [
+						"{{prometheus_uri}}"
+					],
+					"path": [
+						"auth",
+						"reset_password"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "reset password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Pedro\",\n    \"new_passoword\": \"sdfsdfsdf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prometheus_uri}}/auth/reset_password",
+							"host": [
+								"{{prometheus_uri}}"
+							],
+							"path": [
+								"auth",
+								"reset_password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 12:25:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=d591817d335dba5c"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=46e1fdc449296405"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1680006393"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"Pedro\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create customers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Amelia\",\n    \"email_address\": \"Amelia.Earhart@example.com\",\n    \"address\": {\n        \"address_line_1\": \"500 Electric Ave\",\n        \"address_line_2\": \"Suite 600\",\n        \"locality\": \"New York\",\n        \"administrative_district_level_1\": \"NY\",\n        \"postal_code\": \"10003\",\n        \"country\": \"US\"\n    },\n    \"phone_number\": \"+1-212-555-4240\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{prometheus_uri}}/customers",
+					"host": [
+						"{{prometheus_uri}}"
+					],
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create customers",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Amelia\",\n    \"email_address\": \"Amelia.Earhart@example.com\",\n    \"address\": {\n        \"address_line_1\": \"500 Electric Ave\",\n        \"address_line_2\": \"Suite 600\",\n        \"locality\": \"New York\",\n        \"administrative_district_level_1\": \"NY\",\n        \"postal_code\": \"10003\",\n        \"country\": \"US\"\n    },\n    \"phone_number\": \"+1-212-555-4240\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{prometheus_uri}}/customers",
+							"host": [
+								"{{prometheus_uri}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 28 Mar 2023 13:20:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-srv-trace",
+							"value": "v=1;t=5badc4eb3744343e"
+						},
+						{
+							"key": "x-srv-span",
+							"value": "v=1;s=80a150b6bdad1d71"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "120"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "119"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1680009704"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"JDKYHBWT1D4F8MFH63DBMEN8Y4\",\n    \"created_at\": \"2016-03-23T20:21:54.859Z\",\n    \"updated_at\": \"2016-03-23T20:21:55Z\",\n    \"name\": \"Amelia\",\n    \"email_address\": \"Amelia.Earhart@example.com\",\n    \"address\": {\n        \"address_line_1\": \"500 Electric Ave\",\n        \"address_line_2\": \"Suite 600\",\n        \"locality\": \"New York\",\n        \"administrative_district_level_1\": \"NY\",\n        \"postal_code\": \"10003\",\n        \"country\": \"US\"\n    },\n    \"phone_number\": \"+1-212-555-4240\"\n}"
+				}
+			]
+		}
+	]
+}
